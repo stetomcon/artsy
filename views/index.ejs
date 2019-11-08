@@ -11,6 +11,12 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy|Rubik+Mono+One|Wire+One&display=swap"
         rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Bowlby+One+SC|Caveat|Julius+Sans+One|Kalam|Meddon|Permanent+Marker|Reenie+Beanie|Rubik+Mono+One|Sunflower:300&display=swap"
+        rel="stylesheet">
+
+
+
 
 
 
@@ -21,9 +27,15 @@
     <style>
         .header {
             font-size: 7em;
-            color: #eeb224;
-            font-family: 'Wire One', sans-serif;
+            color: #FFFFFF;
+            font-family: 'Permanent Marker', cursive;
             text-align: left;
+        }
+
+        .critic {
+            font-family: 'Amatic SC', cursive;
+            font-size: 25px;
+            color: #FF7163;
         }
 
         h2 {
@@ -35,7 +47,7 @@
 
         body {
             text-align: center;
-            background-color: #2C312C;
+            background-color: #101014;
             max-width: auto;
             padding-left: 3%;
             padding-right: 3%;
@@ -60,7 +72,7 @@
         a {
             color: white;
             text-decoration: none;
-            font-family: 'Open Sans Condensed', sans-serif;
+            font-family: 'Amatic SC', cursive;
             margin: 2%;
         }
 
@@ -69,8 +81,8 @@
         }
 
         .text {
-            color: #2C312C;
-            font-size: 20px;
+            color: #FFFFFF;
+            font-size: 2em;
             position: absolute;
             top: 50%;
             left: 50%;
@@ -78,6 +90,8 @@
             -ms-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
             text-align: center;
+            font-family: 'Rubik Mono One', sans-serif;
+
         }
 
         .overlay {
@@ -90,11 +104,11 @@
             width: 100%;
             opacity: 0;
             transition: .3s ease;
-            background-color: #eeb224;
+            background-color: #FF7163;
         }
 
         .line:hover .overlay {
-            opacity: 0.6;
+            opacity: 0.9;
         }
 
         /* img {
@@ -114,7 +128,7 @@
             <a href="art/new">Log</a>
         </nav>
         <div class="header">
-            ARTSY.critic
+            ARTSY.<span class="critic">critic</span>
         </div>
 
 
@@ -124,7 +138,7 @@
         <% art.forEach((art, id) => { %>
         <div class="line">
 
-            <a href="art/<%=art.id%>" class="block"><img src="<%=art.img%>" width="250" height="250"
+            <a href="art/<%=art.id%>" class="block"><img src="<%=art.img%>" width="200" height="250"
                     alt="<%=art.title%>"></a>
 
             <div class="overlay">
