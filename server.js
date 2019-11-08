@@ -19,4 +19,4 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/art', artController)
 
 
-app.listen(3000, (req, res) => console.log('listening on PORT 3000!'))
+app.listen(PORT, (req, res) => console.log('listening on PORT 3000!'))
