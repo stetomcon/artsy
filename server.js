@@ -18,5 +18,10 @@ app.use(express.urlencoded({ extended: true }));
 //CONTROLLERS
 app.use('/art', artController)
 
+// redirect
+app.use('/', (req, res) => {
+    res.redirect('/art');
+})
+
 
 app.listen(PORT, (req, res) => console.log('listening on PORT 3000!'))
