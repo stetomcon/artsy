@@ -2,11 +2,12 @@ const express = require('express')
 const app = express()
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
-const port = 3000;
+const PORT = process.env.PORT || 3000;
 const artController = require('./controllers/art.js');
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/basiccrud'
 
 // DB SETUP
-mongoose.connect('mongodb://localhost:27017/basiccrud', { useNewUrlParser: true });
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 mongoose.connection.once('open', () => {
     console.log('connected to mongo');
 });
