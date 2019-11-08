@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap" rel="stylesheet">
+
+    <title>Index</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        h1 {
+            font-size: 7em;
+            color: white;
+        }
+
+        h2 {
+            font-size: 3em;
+            font-family: 'Open Sans Condensed', sans-serif;
+
+        }
+
+        h3 {
+            font-size: 1em;
+            font-family: 'Open Sans Condensed', sans-serif;
+            text-align: left;
+
+        }
+
+        h4 {
+            font-size: 1.5em;
+            font-family: 'Open Sans Condensed', sans-serif;
+
+        }
+
+        body {
+            text-align: center;
+            background-color: #2C312C;
+            max-width: auto;
+            padding-left: 12%;
+            padding-right: 12%;
+        }
+
+        .line {
+            display: inline-block;
+            text-align: center;
+        }
+
+        .block {
+            display: block;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+            font-family: 'Open Sans Condensed', sans-serif;
+            margin: 2%;
+        }
+
+        a:hover {
+            color: darkcyan;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Upload</h1>
+    <a href="/art">Home</a>
+    <form action="/art" method="POST">
+
+
+        <input type="text" name="img" placeholder="IMG URL" /><br />
+        <input type="text" name="title" placeholder="Title" /><br />
+        <input type="text" name="description" placeholder="Description" /><br />
+        <input type="text" name="tags" placeholder="Tags" /><br />
+        <input type="submit" name="" value="upload " />
+    </form>
+</body>
+
+</html>
