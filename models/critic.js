@@ -5,6 +5,7 @@ const criticSchema = new mongoose.Schema({
     post: { type: String, required: true },
 });
 
-const critic = mongoose.model('comment', criticSchema);
+const critic = mongoose.model('critic', criticSchema);
 
 module.exports = critic;
+

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap" rel="stylesheet">
+
+    <title>Index</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        h1 {
+            font-size: 7em;
+            color: white;
+        }
+
+        h2 {
+            font-size: 3em;
+            font-family: 'Open Sans Condensed', sans-serif;
+            color: #FFFFFF;
+
+        }
+
+        h3 {
+            font-size: 1em;
+            font-family: 'Open Sans Condensed', sans-serif;
+        }
+
+        h4 {
+            font-size: 1.5em;
+            font-family: 'Open Sans Condensed', sans-serif;
+            color: #FFFFFF;
+
+        }
+
+        body {
+            text-align: center;
+            background-color: #0B0B0B;
+            max-width: auto;
+            padding-left: 10%;
+            padding-right: 10%;
+            color: #FFFFFF;
+        }
+
+        .line {
+            display: inline-block;
+            text-align: center;
+        }
+
+        .block {
+            display: block;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+            font-family: 'Open Sans Condensed', sans-serif;
+            margin: 2%;
+        }
+
+        a:hover {
+            color: darkcyan;
+        }
+
+        .buttons {
+            display: inline-block;
+        }
+
+        img {
+            display: inline-block;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Update</h1>
+    <form action="/art/<%=art.id%>?_method=PUT" method="POST">
+
+
+        <h3><img src="<%=art.img%>" width="400" height="400"></h3>
+        <br>
+        <label for="title">Title</label>
+        <input type="text" name="title" id="title" value="<%=art.title%>" />
+
+        <label for="description">Description</label>
+        <input type="text" name="description" id="description" value="<%=art.description%>" />
+
+        <label for="tag">Tags</label>
+        <input type="text" name="tag" id="tag" value="<%=art.tag%>" />
+
+        <input type="submit" value="Update Art">
+    </form>
+</body>
+
+</html>

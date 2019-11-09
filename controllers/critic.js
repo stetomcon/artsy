@@ -10,22 +10,22 @@ router.get('/new', (req, res) => {
 
 router.post('/', (req, res) => {
     critic.create(req.body, () => {
-        res.redirect('/art');
+        res.redirect('/critic');
     });
 });
 
 router.get('/', (req, res) => {
-    critic.find({}, (error, allcritic) => {
+    critic.find({}, (error, critic) => {
         res.render('index.ejs', {
-            critic: allcritic
+            critic: critic
         });
     });
 });
 
 router.get('/:id', (req, res) => {
-    critic.findById(req.params.id, (err, foundcritic) => {
+    critic.findById(req.params.id, (err, critic) => {
         res.render('show.ejs', {
-            critic: foundcritic
+            critic: critic
         });
     });
 });
@@ -33,11 +33,11 @@ router.get('/:id', (req, res) => {
 
 
 router.get('/:id/edit', (req, res) => {
-    critic.findById(req.params.id, (err, foundcritic) => { //find the 
+    critic.findById(req.params.id, (err, critic) => { //find the 
         res.render(
             'edit.ejs',
             {
-                critic: foundcritic //pass in found 
+                critic: critic //pass in found 
             }
         );
     });
@@ -55,7 +55,7 @@ router.put('/:id', (req, res) => {
 // DELETE
 router.delete('/:id', (req, res) => {
     // add delete logic using mongoose
-    critic.findByIdAndRemove(req.params.id, (err, deletecritic) => {
+    critic.findByIdAndRemove(req.params.id, (err, critic) => {
         if (err) {
             console.log(err)
         } else {

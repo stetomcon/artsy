@@ -38,8 +38,8 @@
             text-align: center;
             background-color: #0B0B0B;
             max-width: auto;
-            padding-left: 3%;
-            padding-right: 3%;
+            padding-left: 10%;
+            padding-right: 10%;
             color: #FFFFFF;
         }
 
@@ -81,6 +81,7 @@
         </nav>
     </header>
 
+    <!-- DISPLAYING ARTWORK  -->
     <main>
         <ul>
             <h2> <%=art.title%> </h2>
@@ -89,21 +90,10 @@
             <h4>Description</h4>
             <h5><%=art.description%></h5>
         </ul>
+
+        <!-- EDIT DELETE BUTTONS -->
+
         <div class="buttons">
-
-            <form action="/art/<%=art.id%>?_method=PUT" method="POST">
-                <% if(art.qty === 0){%>
-                OUT OF STOCK
-                <% } %>
-                <% if(art.qty >= 0) {%>
-                <input type="hidden" name="qty" value="<%= art.qty -1%>" />
-                <input type="submit" name="" value="BUY" />
-
-                <% } %>
-            </form>
-
-
-
             <a href="/art/<%=art.id%>/edit"><button>EDIT</button></a>
 
             <form action="/art/<%=art.id%>?_method=DELETE" method="POST">
@@ -113,23 +103,9 @@
     </main>
 
     <!-- ADDING COMMENT SECTION -->
-
-
-    <form action="/art" method="POST">
-        <input type="text" name="critic" width="400" height="200" placeholder="Post your comments...">
-        <input type="submit" name="" value="Post" />
-    </form>
-
-    <!-- DISPLAYING POSTS -->
-
-    <p> <%=art.critic%> </p>
-
     <!-- comment section -->
-    <!-- 
-    <form action="/comment/" method="POST">
-        <input type="text" name="name" placeholder="Name" /><br />
-        <input type="text" name="post" placeholder="Post..." /><br />
-        <input type="submit" name="" value="Create Post" />
-    </form> -->
+
+
+
 
 </body>
