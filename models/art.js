@@ -5,6 +5,7 @@ const artSchema = new mongoose.Schema({
     img: { type: String, required: true },
     description: { type: String, required: true },
     tag: { type: [String] },
+    critic: { type: [String] },
 });
 
 const art = mongoose.model('art', artSchema);

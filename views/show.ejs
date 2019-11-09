@@ -18,28 +18,29 @@
         h2 {
             font-size: 3em;
             font-family: 'Open Sans Condensed', sans-serif;
+            color: #FFFFFF;
 
         }
 
         h3 {
             font-size: 1em;
             font-family: 'Open Sans Condensed', sans-serif;
-            text-align: left;
-
         }
 
         h4 {
             font-size: 1.5em;
             font-family: 'Open Sans Condensed', sans-serif;
+            color: #FFFFFF;
 
         }
 
         body {
             text-align: center;
-            background-color: #101014;
+            background-color: #0B0B0B;
             max-width: auto;
             padding-left: 3%;
             padding-right: 3%;
+            color: #FFFFFF;
         }
 
         .line {
@@ -64,6 +65,11 @@
 
         .buttons {
             display: inline-block;
+        }
+
+        img {
+            display: inline-block;
+            height: auto;
         }
     </style>
 </head>
@@ -105,5 +111,25 @@
             </form>
         </div>
     </main>
+
+    <!-- ADDING COMMENT SECTION -->
+
+
+    <form action="/art" method="POST">
+        <input type="text" name="critic" width="400" height="200" placeholder="Post your comments...">
+        <input type="submit" name="" value="Post" />
+    </form>
+
+    <!-- DISPLAYING POSTS -->
+
+    <p> <%=art.critic%> </p>
+
+    <!-- comment section -->
+    <!-- 
+    <form action="/comment/" method="POST">
+        <input type="text" name="name" placeholder="Name" /><br />
+        <input type="text" name="post" placeholder="Post..." /><br />
+        <input type="submit" name="" value="Create Post" />
+    </form> -->
 
 </body>

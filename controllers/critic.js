@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const art = require('../models/art')
+const critic = require('../models/critic')
 
 
 
@@ -9,23 +9,23 @@ router.get('/new', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    art.create(req.body, () => {
+    critic.create(req.body, () => {
         res.redirect('/art');
     });
 });
 
 router.get('/', (req, res) => {
-    art.find({}, (error, allart) => {
+    critic.find({}, (error, allcritic) => {
         res.render('index.ejs', {
-            art: allart
+            critic: allcritic
         });
     });
 });
 
 router.get('/:id', (req, res) => {
-    art.findById(req.params.id, (err, foundart) => {
+    critic.findById(req.params.id, (err, foundcritic) => {
         res.render('show.ejs', {
-            art: foundart
+            critic: foundcritic
         });
     });
 });
@@ -33,11 +33,11 @@ router.get('/:id', (req, res) => {
 
 
 router.get('/:id/edit', (req, res) => {
-    art.findById(req.params.id, (err, foundart) => { //find the 
+    critic.findById(req.params.id, (err, foundcritic) => { //find the 
         res.render(
             'edit.ejs',
             {
-                art: foundart //pass in found 
+                critic: foundcritic //pass in found 
             }
         );
     });
@@ -45,7 +45,7 @@ router.get('/:id/edit', (req, res) => {
 
 router.put('/:id', (req, res) => {
     //{new: true} tells mongoose to send the updated model into the callback
-    art.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedModel) => {
+    critic.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedModel) => {
         res.redirect('/art');
     });
 });
@@ -55,7 +55,7 @@ router.put('/:id', (req, res) => {
 // DELETE
 router.delete('/:id', (req, res) => {
     // add delete logic using mongoose
-    art.findByIdAndRemove(req.params.id, (err, deleteart) => {
+    critic.findByIdAndRemove(req.params.id, (err, deletecritic) => {
         if (err) {
             console.log(err)
         } else {

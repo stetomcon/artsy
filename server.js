@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const PORT = process.env.PORT || 3000;
 const artController = require('./controllers/art.js');
+const criticController = require('./controllers/critic.js');
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/basiccrud'
 
 // DB SETUP
@@ -15,13 +16,16 @@ mongoose.connection.once('open', () => {
 // MIDDLEWARE
 app.use(methodOverride('_method'));
 app.use(express.urlencoded({ extended: true }));
+
 //CONTROLLERS
 app.use('/art', artController)
+app.use('/critic', criticController)
 
 // redirect
 app.use('/', (req, res) => {
     res.redirect('/art');
 })
+
 
 
 app.listen(PORT, (req, res) => console.log('listening on PORT 3000!'))
