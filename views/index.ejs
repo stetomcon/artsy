@@ -57,7 +57,6 @@
             display: inline-block;
             text-align: center;
             position: relative;
-
         }
 
         .block {
@@ -118,6 +117,11 @@
             border-color: #FFFFFF;
         }
 
+        .tight {
+            padding-left: 15%;
+            padding-right: 15%;
+        }
+
         /* img {
             display: inline-block;
             width: 100%;
@@ -141,22 +145,22 @@
 
     </header>
     <main>
+        <div class="tight">
+            <% art.forEach((art, id) => { %>
+            <div class="line">
 
-        <% art.forEach((art, id) => { %>
-        <div class="line">
+                <a href="art/<%=art.id%>" class="block"><img src="<%=art.img%>" width="200" height="250"
+                        alt="<%=art.title%>"></a>
 
-            <a href="art/<%=art.id%>" class="block"><img src="<%=art.img%>" width="200" height="250"
-                    alt="<%=art.title%>"></a>
+                <div class="overlay">
+                    <a href="art/<%=art.id%>">
+                        <div class="text"><%=art.title%></div>
+                    </a>
+                </div>
 
-            <div class="overlay">
-                <a href="art/<%=art.id%>">
-                    <div class="text"><%=art.title%></div>
-                </a>
             </div>
-
+            <%});%>
         </div>
-        <%});%>
-
 
     </main>
 
