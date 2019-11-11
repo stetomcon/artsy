@@ -146,9 +146,9 @@
 
         .desc {
             font-family: 'Josefin Sans', sans-serif;
-            background: rgba(48, 48, 47, 0.3);
-            border-radius: 25px;
-            border: 2px rgba(48, 48, 47, 0.3);
+            background: rgba(33, 33, 33, 0.3);
+            border-radius: 30px;
+            border: 2px rgba(33, 33, 33, 0.3);
             color: white;
             margin-left: 2%;
             margin-right: 2%;
@@ -199,12 +199,18 @@
 
         <!-- EDIT DELETE BUTTONS -->
 
-        <<div class="admin-actions">>
+
+        <% if (currentUser) { %>
+        <div class="admin-actions">
             <a href="/art/<%=art.id%>/edit"><button class="logout">EDIT</button></a>
             <form action="/art/<%=art.id%>?_method=DELETE" method="POST">
                 <input type="submit" value="DELETE" class="logout" />
             </form>
-            </div>
+        </div>
+
+        <% } %>
+
+
     </main>
 
     <!-- ADDING COMMENT SECTION -->
