@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const art = require('../models/art')
-
+const User = require('../models/users')
+const bcrypt = require('bcrypt');
 
 
 router.get('/new', (req, res) => {
@@ -17,7 +18,8 @@ router.post('/', (req, res) => {
 router.get('/', (req, res) => {
     art.find({}, (error, allart) => {
         res.render('index.ejs', {
-            art: allart
+            art: allart,
+            currentUser: req.session.currentUser
         });
     });
 });
@@ -25,7 +27,8 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
     art.findById(req.params.id, (err, foundart) => {
         res.render('show.ejs', {
-            art: foundart
+            art: foundart,
+            currentUser: req.session.currentUser,
         });
     });
 });
@@ -51,6 +54,9 @@ router.put('/:id', (req, res) => {
 });
 
 
+
+
+//
 
 // DELETE
 router.delete('/:id', (req, res) => {
