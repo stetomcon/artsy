@@ -122,6 +122,12 @@
             padding-right: 15%;
         }
 
+        .logout {
+            background-color: #0B0B0B;
+            color: #FFFFFF;
+            font-family: 'Amatic SC', cursive;
+        }
+
         /* img {
             display: inline-block;
             width: 100%;
@@ -132,30 +138,28 @@
 </head>
 
 <body>
-    <ul>
-        <% if (currentUser) { %>
-        <li class="float-right">Welcome, <%= (currentUser.username) %>!</li>
-        <% } %>
-        <% if (currentUser) { %>
-        <li><a href="/art/new">Create New</a></li>
-        <form action="/sessions?_method=DELETE" method="POST">
-            <li><input class="logout" type="submit" value="Logout" /></li>
-        </form>
-        <% } else { %>
-        <li><a href="/sessions/login">Log In</a></li>
-        <li><a href="/users/newUser">Register</a></li>
-        <% } %>
-    </ul>
+
 
 
     <header>
-        <nav>
-            <a href="art/new">create</a>
-
-        </nav>
         <div class="header">
             ARTSY.<span class="critic">critic</span>
         </div>
+        <nav>
+            <% if (currentUser) { %> <span class="critic">Welcome, <%= (currentUser.username) %>! </span>
+            <% } %>
+            <% if (currentUser) { %>
+            <a href="/art/new">Create</a>
+            <form action="/sessions?_method=DELETE" method="POST">
+                <input class="logout" type="submit" value="Logout" />
+            </form>
+            <% } else { %>
+            <a href="/sessions/login">Log In</a>
+            <a href="/users/newUser">Register</a>
+            <% } %>
+
+        </nav>
+
 
 
     </header>
