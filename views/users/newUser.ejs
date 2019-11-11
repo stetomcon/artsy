@@ -41,9 +41,11 @@
         }
 
         h2 {
-            font-size: 1em;
+            font-size: 3em;
             font-family: 'Open Sans Condensed', sans-serif;
             color: white;
+            padding-top: 5%;
+            padding-bottom: 2%;
 
         }
 
@@ -157,10 +159,11 @@
         article {
             margin-right: 3.5%;
             margin-left: 3.5%;
-            padding: 5%;
+            padding: 2%;
             font-family: 'Josefin Sans', sans-serif;
             font-size: 16px;
-            text-align: left;
+            text-align: center;
+            color: gray;
 
         }
 
@@ -174,10 +177,23 @@
 </head>
 
 <body>
-    <h1>Create User</h1>
+    <header>
+        <div class="header">
+            ARTSY.<span class="critic">critic</span>
+        </div>
+        <nav>
+            <a href="/art">Home</a>
+        </nav>
+    </header>
+    <h2>Create User</h2>
+    <article>
+        Create an account with "Artsy.critic", start uploading your artwork and get ready for it to be criticized to
+        filth.
+
+    </article>
     <form action="/users" method="POST">
-        <input type="text" name="username" placeholder="username" />
-        <input type="password" name="password" />
+        <input type="text" name="username" placeholder="Username" />
+        <input type="password" name="password" placeholder="Password" />
         <input type="submit" value="Create User" />
     </form>
 </body>
