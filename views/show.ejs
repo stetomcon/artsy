@@ -193,7 +193,7 @@
             <div class="desc">
                 <article>
                     <%=art.description%><br>
-                    #<%=art.tag%>
+                    <%=art.tag%>
                 </article>
             </div>
         </ul>
@@ -213,12 +213,15 @@
 
 
     </main>
-
+    <br><br>
     <!-- ADDING COMMENT SECTION -->
     <!-- comment section -->
-
-
+    <form action="/art" method="POST">
+        <input type="text" name="comments" placeholder="comment" /> <input type="submit" name="" value="submit"
+            class="logout" /><br />
+    </form>
 
     <br>
     <br>
+
 </body>
