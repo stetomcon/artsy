@@ -5,7 +5,8 @@ const artSchema = new mongoose.Schema({
     img: { type: String, required: true },
     description: { type: String },
     tag: { type: [String] },
-    comments: { type: String },
+    post: { type: [String] },
+    name: { type: [String] },
 });
 
 const art = mongoose.model('art', artSchema);

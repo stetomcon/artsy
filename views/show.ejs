@@ -170,6 +170,16 @@
             justify-content: center;
 
         }
+
+        .smalldiv {
+            font-family: 'Josefin Sans', sans-serif;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 30px;
+            border: 2px rgba(255, 255, 255, 0.9);
+            color: rgba(33, 33, 33, 1.0);
+            margin-left: 20%;
+            margin-right: 20%;
+        }
     </style>
 </head>
 
@@ -185,18 +195,18 @@
 
     <!-- DISPLAYING ARTWORK  -->
     <main>
-        <ul>
-            <h4> <%=art.title%> </h4>
 
-            <h3><img src="<%=art.img%>" width="400" height="400"></h3>
-            <h4>Description</h4>
-            <div class="desc">
-                <article>
-                    <%=art.description%><br>
-                    <%=art.tag%>
-                </article>
-            </div>
-        </ul>
+        <h4> <%=art.title%> </h4>
+
+        <h3><img src="<%=art.img%>" width="400" height="400"></h3>
+        <h4>Description</h4>
+        <div class="desc">
+            <article>
+                <%=art.description%><br>
+                <%=art.tag%>
+            </article>
+        </div>
+
 
         <!-- EDIT DELETE BUTTONS -->
 
@@ -213,15 +223,23 @@
 
 
     </main>
-    <br><br>
+    <br>
+    <h4>Comments</h4><br>
     <!-- ADDING COMMENT SECTION thats not working!!!! -->
     <!-- comment section -->
-    <form action="/art" method="POST">
-        <input type="text" name="comments" placeholder="comment" /> <input type="submit" name="" value="submit"
-            class="logout" /><br />
-    </form>
+    <form action="/art/<%=art.id%>/comment" method="POST">
 
+        <input type="text" name="post" placeholder="Name: your comment" />
+
+        <input type="submit" name="" value="submit" class="logout" />
+    </form>
     <br>
+    <% art.post.forEach((post, id) => { %>
+    <div class="smalldiv">
+        <p><%=post%><p>
+    </div>
+    <% }) %>
     <br>
+
 
 </body>

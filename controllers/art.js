@@ -5,21 +5,35 @@ const User = require('../models/users')
 const bcrypt = require('bcrypt');
 
 
+
 router.get('/new', (req, res) => {
     res.render('new.ejs');
 });
 
 router.post('/', (req, res) => {
     art.create(req.body, () => {
-        res.redirect('/art');
+        res.redirect('/art', {
+            art: art,
+        });
     });
+});
+
+/// comments 
+router.post('/:id/comment', (req, res) => {
+    art.findById(req.params.id, (err, foundart) => {
+        if (err) console.log(err.message)
+        foundart.post.push(req.body.post)
+        foundart.save()
+        res.redirect(`/art/${req.params.id}`)
+    })
 });
 
 router.get('/', (req, res) => {
     art.find({}, (error, allart) => {
         res.render('index.ejs', {
             art: allart,
-            currentUser: req.session.currentUser
+            currentUser: req.session.currentUser,
+
         });
     });
 });
@@ -29,6 +43,7 @@ router.get('/:id', (req, res) => {
         res.render('show.ejs', {
             art: foundart,
             currentUser: req.session.currentUser,
+
         });
     });
 });
@@ -40,7 +55,8 @@ router.get('/:id/edit', (req, res) => {
         res.render(
             'edit.ejs',
             {
-                art: foundart //pass in found 
+                art: foundart,
+
             }
         );
     });

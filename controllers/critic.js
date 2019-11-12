@@ -4,13 +4,16 @@ const critic = require('../models/critic')
 
 
 
+
 router.get('/new', (req, res) => {
     res.render('new.ejs');
 });
 
-router.post('/', (req, res) => {
+router.post('/critic/', (req, res) => {
     critic.create(req.body, () => {
-        res.redirect('/critic');
+        res.render('/show', {
+            critic: critic
+        });
     });
 });
 
